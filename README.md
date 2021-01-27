@@ -1,0 +1,1 @@
+# amocrm-vue-widget-sample
