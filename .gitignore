@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+dist/app.js
+dist/app.js.map
+
+widget.zip
+
