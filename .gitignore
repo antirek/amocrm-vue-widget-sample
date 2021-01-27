@@ -104,8 +104,8 @@ dist
 .tern-port
 
 
-dist/app.js
-dist/app.js.map
+widget/app.js
+widget/app.js.map
 
 widget.zip
 
