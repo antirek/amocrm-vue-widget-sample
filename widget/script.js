@@ -1,6 +1,4 @@
 define(['./app.js?cache=' + Date.now() ], function(App) {
-
-
   const Widget = function () {
 
     const self = this;
@@ -26,6 +24,10 @@ define(['./app.js?cache=' + Date.now() ], function(App) {
       },
       settings() {
         App.default.settings(self);
+        return true;
+      },
+      advancedSettings () {
+        App.default.advancedSettings(self);
         return true;
       },
       onSave() {
