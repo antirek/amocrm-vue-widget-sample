@@ -9,10 +9,11 @@
         "locale":[ "ru", "en" ],
         "installation": true
     },
-    "locations":[
-        "settings",
+    "locations":[        
         "lcard-1",
         "ccard-1",
+        "settings",
+        "advanced_settings",
         "anywhere"
     ],
     "settings":{              
@@ -21,5 +22,8 @@
             "type": "custom",
             "required": false
         }
+    },
+    "advanced": {
+        "title": "advanced.title"
     }
 }

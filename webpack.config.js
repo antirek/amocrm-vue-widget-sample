@@ -2,6 +2,8 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin'); // плагин для загрузки кода Vue
 const AmdWebpackPlugin = require('amd-webpack-plugin');
 const ZipFilesPlugin = require('webpack-zip-files-plugin');
+// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
 
 const ENV = 'dev';
 
@@ -59,5 +61,21 @@ module.exports = {
             output: path.join(__dirname, './widget'),
             format: 'zip',
         }),
-    ]
+    ],
+    /*
+    optimization: {
+        minimizer: [
+            new UglifyJSPlugin({
+                uglifyOptions: {
+                    compress: {
+                        drop_console: true,
+                    },
+                    output: {
+                        comments: false,
+                    },
+                },
+            }),
+        ],
+    },
+    */
 }

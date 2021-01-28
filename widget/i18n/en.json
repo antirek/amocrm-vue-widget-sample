@@ -9,5 +9,8 @@
         "api_key":"API key",
         "account":"Account",
         "try_free": "Try for free"
+    },
+    "advanced": {
+        "title": "Super settings"
     }
 }
