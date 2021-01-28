@@ -1,5 +1,6 @@
 import Vue from 'vue/dist/vue.js';
 import Settings from './components/settings.vue';
+import AdvancedSettings from './components/advancedSettings.vue';
 import Card from './components/card.vue';
 import store from './stores/index';
 
@@ -37,8 +38,8 @@ const Widget = {
   advancedSettings() {
     const vm = new Vue({
       store: store,
-      render: h => h(Settings),
-    }).$mount(Settings.$el);
+      render: h => h(AdvancedSettings),
+    }).$mount("#" + AdvancedSettings.$el);
     console.log('oneDocs advanced settings');
     return true;
   },
