@@ -26,26 +26,6 @@
 
             </div>
         </div>
-        <div class="scrm_widget_footer">
-            <p>
-                * Стоимость подписки: 1490₽ / месяц. При оплате за год - 2 месяца в подарок!
-            </p>
-            <p>
-                * Бесплатный период - 7 дней. Функционал виджета может быть ограничен.
-            </p>
-            <p style="margin-top: 7px;">
-                Разработано в
-                <a href="https://vk.com/startcrm" class="dot"  target="_blank">RestartCRM</a>. © 2017–2019
-            </p>
-            <p style="margin-top: 7px;">
-                По вопросам технической работы виджета, пожалуйста, обращайтесь
-                <br>
-                на электронную почту
-                <a class="dot" href="mailto:support@restart-crm.ru" >
-                    support@start-crm.ru
-                </a>
-            </p>
-        </div>
     </div>
 </template>
 
