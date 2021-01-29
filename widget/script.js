@@ -2,7 +2,7 @@ define(['./app.js?cache=' + Date.now() ], function(App) {
   const Widget = function () {
 
     const self = this;
-    self.system = this.system();
+    //self.system = this.system();
     self.langs = this.langs;
 
     /** @private */

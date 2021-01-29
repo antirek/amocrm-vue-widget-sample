@@ -4,6 +4,8 @@ import AdvancedSettings from './components/advancedSettings.vue';
 import Card from './components/card.vue';
 import store from './stores/index';
 
+import CurrentTime from './stores/currentTime';
+
 Vue.config.devtools = true;
 Vue.config.silent = true;
 
@@ -24,8 +26,10 @@ const Widget = {
     console.log('app render');
     return true;
   },
-  init() {
+  init(self) {
     console.log('app init');
+    const curTime = new CurrentTime({widget: self});
+    curTime.bind();
     return true;
   },
   bind_actions() {
