@@ -16,7 +16,7 @@
   })
 
   export default class AdvancedSettings extends Vue {
-    static $el = 'list_page_holder';
+    static $el = '#advSettings1212';
 
     data() {
       return {

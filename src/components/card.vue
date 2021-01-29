@@ -8,27 +8,54 @@
 </template>
 
 <script>
-  import { Component, Vue } from 'vue-property-decorator';
-  // import axios from 'axios';
+  import { Component, Vue, Prop } from 'vue-property-decorator';
+  import axios from 'axios';
 
   @Component({
     name: "Card",
   })
 
   export default class Card extends Vue {
+    @Prop() widget;
     static $el = 'card_element';
 
-    data() {
-      return {
-        title: 'Card',
-        token: null,
-        current_card_id: null,
-      };
+    get CONTACT_API_URL() {
+      return `https://${this.widget.system.domain}/api/v2/contacts`
     }
 
-    async start () {      
+    get LEAD_API_URL() { 
+      return `https://${this.widget.system.domain}/api/v4/leads` 
+    }
+  
+    title = 'Card';
+    token = null;
+    current_card_id = null;
+
+    async getContactByLeadId(id) {}
+
+    async fetchContactByLeadId(leadId) {
+      const url = `${this.LEAD_API_URL}/${leadId}`;
+      console.log('lead url', url);
+      const response =  (await axios.get(url, {params: {with: 'contacts'}})).data;
+      console.log('fetch lead', response);
+      return response && response._embedded.contacts ? response._embedded.contacts[0] : null;
+    }
+
+    async fetchContactById(contactId) {
+      const response = (await axios.get(this.CONTACT_API_URL, {params: {id: contactId}})).data;
+      return response ? response._embedded.items[0] : undefined;
+    }
+
+    async start () {
       this.current_card_id = AMOCRM.data.current_card.id;
       console.log('amocrm', AMOCRM.data.current_card);
+      console.log('self', this.widget);
+      console.log('self', this.widget.system);
+      console.log('self', this.widget.system.domain);
+      window.WIDGET = this.widget;
+      console.log('lead api url', this.LEAD_API_URL);
+      const lead = await this.fetchContactByLeadId(AMOCRM.data.current_card.id);
+      console.log('lead', lead);
     }
   }
 </script>

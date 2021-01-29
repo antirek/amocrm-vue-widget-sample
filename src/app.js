@@ -14,17 +14,22 @@ const Widget = {
       }, {el: Card.$el});
       
     const vm = new Vue({
-      render: h => h(Card),
+      render: h => h(Card, {
+        props: {
+          widget: self,
+        },
+      }),
     }).$mount('#' + Card.$el);
 
+    console.log('app render');
     return true;
   },
   init() {
-    console.log('oneDocs init');
+    console.log('app init');
     return true;
   },
   bind_actions() {
-    console.log('oneDocs bind_actions');
+    console.log('app bind_actions');
     return true;
   },
   settings() {
@@ -32,16 +37,16 @@ const Widget = {
       store: store,
       render: h => h(Settings),
     }).$mount(Settings.$el);
-    console.log('oneDocs settings');
-    return true;
+    console.log('app settings');
   },
   advancedSettings() {
-    const vm = new Vue({
+    $('#list_page_holder').html('<div id="advSettings1212"></div>');
+    window.vueAdvancedSettings = new Vue({
       store: store,
       render: h => h(AdvancedSettings),
-    }).$mount("#" + AdvancedSettings.$el);
-    console.log('oneDocs advanced settings');
-    return true;
+    }).$mount(AdvancedSettings.$el);
+    
+    console.log('app advanced settings');
   },
   onSave() {
 
