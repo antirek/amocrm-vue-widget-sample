@@ -18,7 +18,7 @@ define([
       },
       init() {
         console.log('init in script');
-        App.default.init(self);
+        App.default.init(self, moment);
         return true;
       },
       bind_actions() {

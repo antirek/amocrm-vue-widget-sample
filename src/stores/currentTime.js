@@ -1,5 +1,3 @@
-import moment from 'moment';
-
 export default class CurrentTime {
   widget = null;
 
@@ -7,7 +5,7 @@ export default class CurrentTime {
       this.widget = widget;
   }
 
-  bind () {
+  bind (moment) {
     const LOCALTIME_CLASS = 'mobilon-localtime';
     const LOCALTIME_CLASS_GOOD = `${LOCALTIME_CLASS}-good`;
     const LOCALTIME_CLASS_BAD = `${LOCALTIME_CLASS}-bad`;
@@ -141,7 +139,7 @@ export default class CurrentTime {
         console.log('widget on img', widget);
         return $(
             `<img src="${widget.params.path}/images/alert.png" 
-            title="${widget.i18n('localtime').alert_tooltip}" alt="">`
+              title="${widget.i18n('localtime').alert_tooltip}" alt="">`
         );
     }
 

@@ -26,10 +26,10 @@ const Widget = {
     console.log('app render');
     return true;
   },
-  init(self) {
+  init(self, moment) {
     console.log('app init');
     const curTime = new CurrentTime({widget: self});
-    curTime.bind();
+    curTime.bind(moment);
     return true;
   },
   bind_actions() {
