@@ -9,15 +9,15 @@
                             </span>
                         </span>
                 </button>
-            </div>
-            <div>
-                <label class="control-checkbox" v-bind:class="{ 'is-checked' : isConfirm }" >
-                    <div class="control-checkbox__body" >
-                        <input v-on:click="check()" class="" data-value="" :checked="isConfirm" name="startcrm_confirm_checkbox" type="checkbox" value="">
-                            <span class="control-checkbox__helper "></span>
-                        </input>
-                    </div>
-                    <div class="control-checkbox__text element__text " title="Я согласен с передачей данных аккаунта amoCRM (адрес электронной почты, API-ключ, URL аккаунта)">
+                </div>
+                <div>
+                    <label class="control-checkbox" v-bind:class="{ 'is-checked' : isConfirm }" >
+                        <div class="control-checkbox__body" >
+                            <input v-on:click="check()" class="" data-value="" :checked="isConfirm" name="startcrm_confirm_checkbox" type="checkbox" value="">
+                                <span class="control-checkbox__helper "></span>
+                            </input>
+                        </div>
+                        <div class="control-checkbox__text element__text " title="Я согласен с передачей данных аккаунта amoCRM (адрес электронной почты, API-ключ, URL аккаунта)">
                         Я согласен с лицензионным соглашением и передачей данных аккаунта amoCRM (адрес электронной почты, API-ключ, URL аккаунта)
                     </div>
                 </label>

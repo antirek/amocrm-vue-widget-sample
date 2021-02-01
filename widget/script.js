@@ -1,4 +1,8 @@
-define(['./app.js?cache=' + Date.now() ], function(App) {
+define([
+  './app.js?cache=' + Date.now(),
+  'jquery',
+  'moment',
+], function(App, $, moment) {
   const Widget = function () {
 
     const self = this;

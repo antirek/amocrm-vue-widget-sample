@@ -5,8 +5,6 @@
     token <input type="text" v-model="token" class="text-input">
     <button @click="start()" class="button-input">Connect</button>
     <br/>
-    <input type="text" v-model="hard" class="text-input">
-    <button @click="sendHard()" class="button-input">Connect</button>
   </div>
 </template>
 
@@ -60,30 +58,6 @@
       const contact = await this.fetchContactById(contactMetadata.id);
       console.log('contact', contact);
     }
-
-    async sendHard() {
-      const text = this.hard;
-      console.log('text', text);
-      const elements = $('.linked-form__field__value');
-      console.log('elements', elements);
-
-      $('div[data-pei-code="phone"]').each((index, element) => {
-        const localtimeElement = $(`<div class=".mbln_localtime"></div>`)
-          .appendTo(element.closest('.linked-form__field__value'));
-      });
-      return;
-    }
-
   }
 </script>
 
-<style>
-
-.mobilon-localtime-good {
-    border-color: #87d887;
-}
-
-.mobilon-localtime-bad {
-    border-color: #ef9b9b;
-}
-</style>

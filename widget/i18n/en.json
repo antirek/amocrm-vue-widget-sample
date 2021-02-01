@@ -12,5 +12,8 @@
     },
     "advanced": {
         "title": "Super settings"
+    },
+    "localtime": {
+        "alert_tooltip": "input number in federal format, 73912745000"
     }
 }
