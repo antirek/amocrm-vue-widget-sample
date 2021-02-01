@@ -48,7 +48,7 @@ module.exports = {
     },
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './src/components')
+            '@': path.resolve(__dirname, './src/components'),
         }
     },
     plugins: [
@@ -56,7 +56,10 @@ module.exports = {
         new VueLoaderPlugin(),
         new ZipFilesPlugin({
             entries: [
-                { src: path.join(__dirname, './widget/'), dist: '/' }
+                {
+                    src: path.join(__dirname, './widget/'),
+                    dist: '/',
+                },
             ],
             output: path.join(__dirname, './widget'),
             format: 'zip',
