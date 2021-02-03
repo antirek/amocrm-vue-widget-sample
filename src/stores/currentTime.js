@@ -148,8 +148,6 @@ export default class CurrentTime {
         $(`.${LOCALTIME_CLASS}`).each((index, element) => refreshLocalTimeValue(element));
     }
 
-
-
     function addCssFile() {
       const url = `${widget.params.path}/style.css?v=${widget.get_version()}`;
       console.log('url', url);

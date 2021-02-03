@@ -2,22 +2,32 @@
   <div>
     <p>hello, {{ title }} {{token}}</p>
     <p>current card {{ current_card_id }}</p>
-    token <input type="text" v-model="token" class="text-input">
+    token <input type="text" v-model="message" class="text-input" id="token">
     <button @click="start()" class="button-input">Connect</button>
     <br/>
+    <date-picker v-model="time1" valueType="format"></date-picker>
+    <button class="button-input" @click="copy()">
+      Copy to clipboard
+    </button>
   </div>
 </template>
 
 <script>
   import { Component, Vue, Prop } from 'vue-property-decorator';
+
   import axios from 'axios';
+  import DatePicker from 'vue2-datepicker';
+  import 'vue2-datepicker/index.css';
 
   @Component({
     name: "Card",
+    components: { DatePicker, Clipboard, },
   })
-
+  
   export default class Card extends Vue {
     @Prop() widget;
+    @Prop() time1;
+
     static $el = 'card_element';
 
     get CONTACT_API_URL() {
@@ -27,9 +37,13 @@
     get LEAD_API_URL() { 
       return `https://${this.widget.system().domain}/api/v4/leads`
     }
+
+    get message() {
+      return `${this.token} ${this.time1}`;
+    }
   
     title = 'Card';
-    token = null;
+    token = 'asasakldkaldl';
     current_card_id = null;
 
     async fetchContactByLeadId(leadId) {
@@ -57,6 +71,13 @@
 
       const contact = await this.fetchContactById(contactMetadata.id);
       console.log('contact', contact);
+    }
+
+    async copy () {
+      var copyText = document.getElementById("token");
+      copyText.select();
+      document.execCommand("copy");
+      console.log("copied text", copyText.value);
     }
   }
 </script>
