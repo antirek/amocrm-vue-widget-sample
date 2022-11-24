@@ -11,18 +11,15 @@ define([
 
     /** @private */
     this.callbacks = {
-      render() {
-        console.log('render in script');
+      render() {        
         App.default.render(self);
         return true;
       },
       init() {
-        console.log('init in script');
         App.default.init(self, moment);
         return true;
       },
       bind_actions() {
-        console.log('bind_actions in script');
         App.default.bind_actions(self);
         return true;
       },

@@ -48,36 +48,27 @@
 
     async fetchContactByLeadId(leadId) {
       const url = `${this.LEAD_API_URL}/${leadId}`;
-      console.log('lead url', url);
+
       const response =  (await axios.get(url, {params: {with: 'contacts'}})).data;
-      console.log('fetch lead', response);
       return response && response._embedded.contacts ? response._embedded.contacts[0] : null;
     }
 
     async fetchContactById(contactId) {
       const response = (await axios.get(this.CONTACT_API_URL, {params: {id: contactId}})).data;
-      console.log('response contact', response);      
       return response ? response.custom_fields_values : undefined;
     }
 
     async start () {
-      this.current_card_id = AMOCRM.data.current_card.id;
-      console.log('amocrm', AMOCRM.data.current_card);
-      console.log('self', this.widget);
-      console.log('lead api url', this.LEAD_API_URL);
-      
+      this.current_card_id = AMOCRM.data.current_card.id;      
       const contactMetadata = await this.fetchContactByLeadId(AMOCRM.data.current_card.id);
-      console.log('lead', contactMetadata);
 
       const contact = await this.fetchContactById(contactMetadata.id);
-      console.log('contact', contact);
     }
 
     async copy () {
       var copyText = document.getElementById("token");
       copyText.select();
       document.execCommand("copy");
-      console.log("copied text", copyText.value);
     }
   }
 </script>
